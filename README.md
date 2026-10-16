@@ -1,6 +1,6 @@
 # Podcast Ad Tagger
 
-A small model that finds the ads in podcast episodes: sponsor reads, a show plugging its own stuff, the "become a member" pitches, and the recurring boilerplate. It runs locally, on a laptop or a phone, so a podcast player can skip ads without sending anything anywhere. There's also a little command line tool that cuts them out of an MP3.
+A small model that finds the ads in podcast episodes: sponsor reads, a show plugging its own stuff, the "become a member" pitches, and the recurring boilerplate. It runs locally, on a laptop or a phone, so a podcast player can skip ads without sending anything anywhere. There's also a little command line tool that cuts them out of an MP3, and a proof of concept player that does all of it in a web page.
 
 ```
 $ adstrip episode.mp3
@@ -29,6 +29,7 @@ The text embeddings come from [Qwen3-Embedding-0.6B](https://huggingface.co/Qwen
 - `python/`: the reference implementation, and `adstrip`, the desktop tool
 - `ios/`: a Swift package for iPhone (and the Mac)
 - `android/`: a Kotlin library module for Android
+- `web/`: a proof of concept podcast player that does all of it in a browser, no backend
 - `docs/FEATURES.md`: exactly what the model reads, for porting it somewhere new
 - `docs/TRANSCRIPTION.md`: what the transcript needs to look like, and what recognizer to use where
 - `testdata/`: reference inputs and outputs for checking a port
@@ -58,7 +59,7 @@ The pipeline is the same everywhere:
 4. Run `model/ad_tagger.onnx` once over the whole episode: `emb` `[1, N, 1024]` and `feats` `[1, N, 28]` in, `probs` `[1, N, 5]` out.
 5. Turn that into spans. Take the most likely class for each segment, bridge gaps of up to two content segments inside a run, and drop runs shorter than two segments. A span starts at its first segment's start and ends at its last segment's end.
 
-The iOS and Android samples do all of that; [ios/README.md](ios/README.md) and [android/README.md](android/README.md) cover dropping them into an app. For anything else, the Python is short enough to port, and `testdata/` will tell you when you've got it right.
+The iOS, Android and web samples do all of that; [ios/README.md](ios/README.md), [android/README.md](android/README.md) and [web/README.md](web/README.md) cover using them. For anything else, the Python is short enough to port, and `testdata/` will tell you when you've got it right.
 
 Two things I found useful in a player:
 
