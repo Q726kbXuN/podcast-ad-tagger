@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- only for Downloads.fetch; drop it if your app ships or fetches the models some other way -->
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

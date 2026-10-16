@@ -1,0 +1,22 @@
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+build/
+dist/
+*.gguf
+*.noads.mp3
+
+# iOS
+ios/.build/
+ios/.swiftpm/
+*.xcuserstate
+DerivedData/
+
+# Android
+android/.gradle/
+android/**/build/
+android/local.properties
+android/.cxx/
+*.iml
+.idea/
