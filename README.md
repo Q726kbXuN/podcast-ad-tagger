@@ -29,7 +29,7 @@ The text embeddings come from [Qwen3-Embedding-0.6B](https://huggingface.co/Qwen
 - `python/`: the reference implementation, and `adstrip`, the desktop tool
 - `ios/`: a Swift package for iPhone (and the Mac)
 - `android/`: a Kotlin library module for Android
-- `web/`: a proof of concept podcast player that does all of it in a browser, no backend
+- `web/`: a proof of concept podcast player that does all of it in a browser, no backend, a demo is [here](https://q726kbxun.github.io/ad_skipper/web/index.html)
 - `docs/FEATURES.md`: exactly what the model reads, for porting it somewhere new
 - `docs/TRANSCRIPTION.md`: what the transcript needs to look like, and what recognizer to use where
 - `testdata/`: reference inputs and outputs for checking a port
